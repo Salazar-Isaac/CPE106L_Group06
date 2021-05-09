@@ -9,20 +9,38 @@ import matplotlib.dates as mdates
 
 Data = pd.read_csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
 
-Data.query('location=="Philippines" & date',inplace = True)
 
-df= pd.DataFrame(Data,columns=['location','date','total_cases'])
+def TotalTested():
+    Data.query('location=="Philippines" & date',inplace = True)
 
+    df= pd.DataFrame(Data,columns=['location','date','total_tests'])
 
-# df.plot(x = 'date', y='total_cases', kind = 'scatter')
-# plt.title("Number of Covid cases in the Philippines")
+    last_element = df.iloc[-3]
 
-# plt.show()
-
-last_element = df.iloc[-1]
-print(last_element.date)
+    print("Total number of tested Filipinos as of",last_element.date, "in the", last_element.location, "=", last_element.total_tests, "Filipinos")
 
 
-print("Total cases as of",last_element.date, "in the", last_element.location, "=", last_element.total_cases)
 
-OverflowError(status.update)
+def TotalCases():
+    Data.query('location=="Philippines" & date',inplace = True)
+
+    df= pd.DataFrame(Data,columns=['location','date','total_cases'])
+
+    last_element = df.iloc[-1]
+
+    print("Total cases as of",last_element.date, "in the", last_element.location, "=", last_element.total_cases, "Filipinos")
+
+def NewestCases():
+    Data.query('location=="Philippines" & date',inplace = True)
+
+    df= pd.DataFrame(Data,columns=['location','date','new_cases'])
+
+    last_element = df.iloc[-1]
+
+    print("Total cases as of",last_element.date, "in the", last_element.location, "=", last_element.new_cases, "Filipinos")
+
+TotalCases()
+
+TotalTested()
+
+NewestCases()
