@@ -8,7 +8,7 @@ Data = pd.read_csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
 
 class Function:
     
-    def TotalTested():
+    def totalTested():
         Data.query('location=="Philippines" & date',inplace = True)
 
         df= pd.DataFrame(Data,columns=['location','date','total_tests'])
@@ -27,7 +27,7 @@ class Function:
         totalTestedText.grid(row=1, column=0)
         noTotalTested.grid(row=1, column=1)
 
-    def TotalCases():
+    def totalCases():
         Data.query('location=="Philippines" & date',inplace = True)
 
         df= pd.DataFrame(Data,columns=['location','date','total_cases'])
@@ -47,7 +47,7 @@ class Function:
         totalCasesText.grid(row=0, column=0)
         noTotalCases.grid(row=0, column=1)
 
-    def NewestCases():
+    def tewestCases():
         Data.query('location=="Philippines" & date',inplace = True)
 
         df = pd.DataFrame(Data,columns=['location','date','new_cases'])
@@ -66,7 +66,7 @@ class Function:
         newCasesText.grid(row=0, column=0)
         newCases.grid(row=0, column=1)
 
-    def TotalCasesPlot():
+    def totalCasesPlot():
         Data.query('location=="Philippines" & date',inplace = True)
         df= pd.DataFrame(Data,columns=['location','date','total_cases'])
         last_element = df.iloc[-1]
