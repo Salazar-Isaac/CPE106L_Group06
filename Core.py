@@ -1,3 +1,9 @@
+#Authors: Salazar, Isaac Joaquin D.
+#         Joshua Rei Y.  Abundo
+#         Clarrice  Ellyne  A.  Galang 
+#         Christian Ray M. Factor 
+
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -13,7 +19,7 @@ class Function:
 
         df= pd.DataFrame(Data,columns=['location','date','total_tests'])
 
-        last_element = df.iloc[-3]
+        last_element = df.iloc[-4]
 
         print("Total number of tested Filipinos as of",last_element.date, "in the", last_element.location, "=", last_element.total_tests, "Filipinos",)
 
@@ -47,7 +53,7 @@ class Function:
         totalCasesText.grid(row=0, column=0)
         noTotalCases.grid(row=0, column=1)
 
-    def tewestCases():
+    def newestCases():
         Data.query('location=="Philippines" & date',inplace = True)
 
         df = pd.DataFrame(Data,columns=['location','date','new_cases'])
